@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "sourceMap": true, // 生成相应的.map文件
+    "noImplicitAny": false, // 在隐any式类型的表达式和声明上引发错误
+    "module": "ESNext", // 指定模块代码生产
+    "target": "ESNext", // 指定ECMAScript的目标版本 "ESNext"最新支持的目标
+    "lib": [ // 要包含在编译中的库文件列表
+      // "es6",
+      "es2018",
+      "dom"
+    ],
+    "moduleResolution": "node", // 确定如何解决模块。可以"Node"使用Node.js / io.js样式解析"Classic"
+    "allowSyntheticDefaultImports": true, // 允许从模块进行默认导入而没有默认导出。这不影响代码发出，仅影响类型检查。
+    "jsx": "react", // 支持jsx的.tsx文件 取值：'react', 'preserve' 'react-native'
+    "allowJs": true, // 允许编译js文件
+    "baseUrl": "." // 基于目录，用于解析非相对模块
+    // "paths": { // 路径映射条目列表
+    //   "@Components/*": ["src/components/*"],
+    //   "@CSS": ["./src/common/css"],
+    //   "@Types": ["./src/common/type"],
+    //   "@JS": ["./src/common/js"],
+    //   "@JS/*": ["./src/common/js/*"],
+    //   "@CommonComponents": ["./src/common/components"],
+    //   "@Routes": ["./src/router"],
+    //   "@Share": ["./src/share"],
+    //   "@Store/*": ["./src/store/*"],
+    //   "@Socket": ["./src/socket/"]
+    // }
+  }
+}

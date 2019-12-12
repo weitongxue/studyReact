@@ -17,7 +17,7 @@ module.exports = (env, argv) => {
       publicPath: '/meituan/',
       filename: 'static/js/' + 'chunk.[name].js',
       // 非入口文件命名（router 动态引入时需要配置）
-      chunkFilename: 'static/js/' + 'chunk.[name].[contenthash:8]'
+      chunkFilename: 'static/js/' + 'chunk.[id].[contenthash:8].js'
     },
     cache: true, // 开启缓存功能，这样只有变化的文件才会重新加载，可提升构建速度
     resolve: {
@@ -32,11 +32,10 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.m?(jsx|js)$/,
+          enforce: 'pre',
+          test: /\.m?(jsx|js|tsx)$/,
           exclude: /(node_modules|bower_components)/,
-          use: {
-            loader: 'babel-loader'
-          }
+          use: ['babel-loader', 'ts-loader']
         },
         {
           test: /\.(less|css)$/,
@@ -67,7 +66,7 @@ module.exports = (env, argv) => {
         filename: './index.html'
       }),
       // new CleanWebpackPlugin('[name].build.js')
-      // 将css独立到单独的文件
+      // 将css独立到单独的文件 (区分开发环境和生产环境)
       new MiniCssExtractPlugin({
         filename: devMode ? '[name].css' : 'static/css/' + '[name].[hash].css',
         chunkFilename: devMode ? '[id].css' : 'static/css/' + '[id].[hash].css'
