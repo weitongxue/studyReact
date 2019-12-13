@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import Mine from '../mine'
 import './index.less'
 
 class Home extends Component {
@@ -8,7 +7,6 @@ class Home extends Component {
     return (
       <>
         <div>我是首页</div>
-        <Mine />
       </>
     )
   }

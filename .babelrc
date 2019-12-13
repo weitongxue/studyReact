@@ -3,5 +3,6 @@
     "@babel/preset-react",
     "@babel/preset-env"
   ],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  // @babel/plugin-syntax-dynamic-import: webpack支持import()动态导入的插件
+  "plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-syntax-dynamic-import"]
 }

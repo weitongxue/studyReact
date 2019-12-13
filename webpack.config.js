@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// let CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 
@@ -10,7 +10,7 @@ module.exports = (env, argv) => {
   const devMode = argv.mode !== 'production'
   return {
     // 入口文件
-    entry: path.resolve(__dirname, 'src/index.js'),
+    entry: ['babel-polyfill', path.resolve(__dirname, 'src/index.js')],
     // 打包之后的文件
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -22,7 +22,11 @@ module.exports = (env, argv) => {
     cache: true, // 开启缓存功能，这样只有变化的文件才会重新加载，可提升构建速度
     resolve: {
       // 配置别名(可以直接引用，不用写相对路径)
-      alias: {},
+      alias: {
+        '@JS': path.resolve(__dirname, 'src/assets/js'),
+        '@components': path.resolve(__dirname, 'src/components/*'),
+        '@views': path.resolve(__dirname, 'src/views')
+      },
       // 不允许忽略后缀名（import js from 'index' 必须写成 import js from 'index.js'）
       enforceExtension: false, // 默认false
       // 自动解析的文件后缀名
@@ -65,7 +69,10 @@ module.exports = (env, argv) => {
         template: './src/index.html',
         filename: './index.html'
       }),
-      // new CleanWebpackPlugin('[name].build.js')
+      new CleanWebpackPlugin({
+        filename: devMode ? '[name].css' : 'static/css/' + '[name].[hash].css',
+        chunkFilename: devMode ? '[id].css' : 'static/css/' + '[id].[hash].css'
+      }),
       // 将css独立到单独的文件 (区分开发环境和生产环境)
       new MiniCssExtractPlugin({
         filename: devMode ? '[name].css' : 'static/css/' + '[name].[hash].css',

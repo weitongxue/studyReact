@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense } from 'react'
 import ReactDom from 'react-dom'
-import Home from './views/home'
+import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom'
+// BrowserRouter是history模式，没有#; HashRouter是Hash模式，有#
+
+import { routes } from './router'
 
 class App extends Component {
   constructor (props) {
@@ -10,7 +13,26 @@ class App extends Component {
 
   render () {
     return (
-      <Home />
+      // 使用react.lazy加载的组件必须使用<Suspense />组件进行临界状态处理
+      <Suspense fallback={<div>Loading...</div>}>
+        <Router>
+          <ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to='/mine'>Mine</Link>
+            </li>
+          </ul>
+          <Switch>
+            {routes.map((route, i) => {
+              return (
+                <Route key={i} {...route} />
+              )
+            })}
+          </Switch>
+        </Router>
+      </Suspense>
     )
   }
 }

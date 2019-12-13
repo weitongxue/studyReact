@@ -13,18 +13,10 @@
     "allowSyntheticDefaultImports": true, // 允许从模块进行默认导入而没有默认导出。这不影响代码发出，仅影响类型检查。
     "jsx": "react", // 支持jsx的.tsx文件 取值：'react', 'preserve' 'react-native'
     "allowJs": true, // 允许编译js文件
-    "baseUrl": "." // 基于目录，用于解析非相对模块
-    // "paths": { // 路径映射条目列表
-    //   "@Components/*": ["src/components/*"],
-    //   "@CSS": ["./src/common/css"],
-    //   "@Types": ["./src/common/type"],
-    //   "@JS": ["./src/common/js"],
-    //   "@JS/*": ["./src/common/js/*"],
-    //   "@CommonComponents": ["./src/common/components"],
-    //   "@Routes": ["./src/router"],
-    //   "@Share": ["./src/share"],
-    //   "@Store/*": ["./src/store/*"],
-    //   "@Socket": ["./src/socket/"]
-    // }
+    "baseUrl": ".", // 基于目录，用于解析非相对模块
+    "paths": { // 路径映射条目列表
+      "@JS": ["./src/assets/js"],
+      "@views": ["./src/views"],
+    }
   }
 }
