@@ -24,8 +24,12 @@ module.exports = (env, argv) => {
       // 配置别名(可以直接引用，不用写相对路径)
       alias: {
         '@JS': path.resolve(__dirname, 'src/assets/js'),
-        '@components': path.resolve(__dirname, 'src/components/*'),
-        '@views': path.resolve(__dirname, 'src/views')
+        '@components': path.resolve(__dirname, 'src/components/'),
+        '@components/*': path.resolve(__dirname, 'src/components/*'),
+        '@views': path.resolve(__dirname, 'src/views'),
+        '@views/*': path.resolve(__dirname, 'src/views/*'),
+        '@assets': path.resolve(__dirname, 'src/assets'),
+        '@assets/*': path.resolve(__dirname, 'src/assets/*')
       },
       // 不允许忽略后缀名（import js from 'index' 必须写成 import js from 'index.js'）
       enforceExtension: false, // 默认false

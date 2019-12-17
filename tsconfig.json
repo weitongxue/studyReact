@@ -9,7 +9,7 @@
       "es2018",
       "dom"
     ],
-    "moduleResolution": "node", // 确定如何解决模块。可以"Node"使用Node.js / io.js样式解析"Classic"
+    "moduleResolution": "node", // 确定如何解决模块。"Node"使用Node.js / io.js样式解析"Classic"
     "allowSyntheticDefaultImports": true, // 允许从模块进行默认导入而没有默认导出。这不影响代码发出，仅影响类型检查。
     "jsx": "react", // 支持jsx的.tsx文件 取值：'react', 'preserve' 'react-native'
     "allowJs": true, // 允许编译js文件
@@ -17,6 +17,11 @@
     "paths": { // 路径映射条目列表
       "@JS": ["./src/assets/js"],
       "@views": ["./src/views"],
+      "@views/*": ["./src/views/*"],
+      "@components": ["./src/components"],
+      "@components/*": ["./src/components/*"],
+      "@assets": ["./src/assets"],
+      "@assets/*": ["./src/assets/*"]
     }
   }
 }
