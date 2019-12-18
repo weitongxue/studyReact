@@ -4,5 +4,7 @@
     "@babel/preset-env"
   ],
   // @babel/plugin-syntax-dynamic-import: webpack支持import()动态导入的插件
-  "plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-syntax-dynamic-import"]
+  "plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-syntax-dynamic-import",
+      ["import", { "libraryName": "antd-mobile", "style": "css" }] // `style: true` 会加载 less 文件
+  ]
 }
