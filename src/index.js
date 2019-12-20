@@ -7,6 +7,7 @@ import { routes } from './router'
 import Footer from '@components/footer'
 
 import '@assets/style/reset.css'
+import '@assets/style/animation.css'
 
 class App extends Component {
   constructor (props) {

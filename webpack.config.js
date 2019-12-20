@@ -56,6 +56,16 @@ module.exports = (env, argv) => {
             loader: 'html-loader',
             options: { minimize: true }
           }
+        },
+        {
+          test: /\.(jpg|png|gif|svg)$/,
+          use: {
+            loader: 'url-loader',
+            options: {
+              limit: 10 * 1024,
+              name: 'static/images/[name].[hash:8].[ext]'
+            }
+          }
         }
       ]
     },

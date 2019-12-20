@@ -7,10 +7,12 @@ const Footer: FC<{}> = () => {
     <footer>
       <div className='nav-wrap'>
         <Link exact to='/' activeClassName='active'>
+          <i className='icon tab-icon-home'></i>
           <span>首页</span>
         </Link>
         <Link exact to='/mine' activeClassName='active'>
-          <span>发现</span>
+          <i className='icon tab-icon-mine'></i>
+          <span>我的</span>
         </Link>
       </div>
     </footer>

@@ -1,0 +1,22 @@
+/*
+ * @Descripttion:动画
+ * @Author: weitongxue
+ * @Date: 2019-12-20 16:24:57
+ * @LastEditTime : 2019-12-20 16:26:02
+ */
+
+ /* tab */
+@keyframes tabMove {
+  0% {
+    opacity: .5;
+    transform: scale(0.5)
+  }
+  50% {
+    opacity: .8;
+    transform: scale(1.2)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
