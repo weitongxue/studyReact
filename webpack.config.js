@@ -21,20 +21,23 @@ module.exports = (env, argv) => {
     },
     cache: true, // 开启缓存功能，这样只有变化的文件才会重新加载，可提升构建速度
     resolve: {
+      // 自动解析的文件后缀名
+      extensions: ['.tsx', '.jsx', '.js', '.json', 'less', '.css'],
       // 配置别名(可以直接引用，不用写相对路径)
       alias: {
-        '@JS': path.resolve(__dirname, 'src/assets/js'),
-        '@components': path.resolve(__dirname, 'src/components/'),
-        '@components/*': path.resolve(__dirname, 'src/components/*'),
+        '@JS': path.resolve(__dirname, './src/assets/js'),
+        '@components': path.resolve(__dirname, './src/components/'),
+        '@components/*': path.resolve(__dirname, './src/components/*'),
         '@views': path.resolve(__dirname, 'src/views'),
-        '@views/*': path.resolve(__dirname, 'src/views/*'),
-        '@assets': path.resolve(__dirname, 'src/assets'),
-        '@assets/*': path.resolve(__dirname, 'src/assets/*')
+        '@views/*': path.resolve(__dirname, './src/views/*'),
+        '@assets': path.resolve(__dirname, './src/assets'),
+        '@assets/*': path.resolve(__dirname, './src/assets/*'),
+        '@store': path.resolve(__dirname, './src/store'),
+        '@store/*': path.resolve(__dirname, './src/store/*')
+        // 如果是在less里应用，需要'~@assets'
       },
       // 不允许忽略后缀名（import js from 'index' 必须写成 import js from 'index.js'）
-      enforceExtension: false, // 默认false
-      // 自动解析的文件后缀名
-      extensions: ['.tsx', '.jsx', '.css', '.js', '.json', 'less']
+      enforceExtension: false // 默认false
     },
     // 模块
     module: {

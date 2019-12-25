@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
+import Store from '@store'
 
 import Banner from '@components/carousel'
+import Nav from '@components/nav'
+import { bannerProps, navProps } from '@assets/js/resetProps'
+import Action from '@store/action'
+
 import './index.less'
 
-const Props = {
-  bannerList: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
-  imgHeight: 97,
-  autoplay: true,
-  dots: false
-}
 class Home extends Component {
+  componentWillMount () {
+    Store.dispatch(Action.getNav(navProps))
+  }
+
   render () {
     return (
       <>
@@ -19,8 +22,9 @@ class Home extends Component {
             <input type='text' placeholder='输入商品名称' />
           </header>
           <div className='banner-wrap'>
-            <Banner {...Props} />
+            <Banner {...bannerProps} />
           </div>
+          <Nav />
         </div>
       </>
     )

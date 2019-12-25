@@ -3,6 +3,8 @@ import ReactDom from 'react-dom'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 // BrowserRouter是history模式，没有#; HashRouter是Hash模式，有#
 
+import { Provider } from 'react-redux'
+import store from '@store'
 import { routes } from './router'
 import Footer from '@components/footer'
 
@@ -37,4 +39,4 @@ class App extends Component {
 }
 
 const app = document.getElementById('app')
-ReactDom.render(<App />, app)
+ReactDom.render(<Provider store={store}><App /></Provider>, app)
