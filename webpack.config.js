@@ -34,7 +34,7 @@ module.exports = (env, argv) => {
       // 不允许忽略后缀名（import js from 'index' 必须写成 import js from 'index.js'）
       enforceExtension: false, // 默认false
       // 自动解析的文件后缀名
-      extensions: ['.tsx', '.jsx', '.css', '.js', '.json']
+      extensions: ['.tsx', '.jsx', '.css', '.js', '.json', 'less']
     },
     // 模块
     module: {
@@ -62,6 +62,7 @@ module.exports = (env, argv) => {
           use: {
             loader: 'url-loader',
             options: {
+              esModule: false, // 启用es5语法（CommonJS require）
               limit: 10 * 1024,
               name: 'static/images/[name].[hash:8].[ext]'
             }

@@ -2,6 +2,8 @@ html {
 font-size: 4.26667vw;
 overflow-x:auto;
 overflow-y:scroll;
+/* 滑动事件Chrome touch事件报错 */
+touch-action: none;
 }
 body, dl, dt, dd, ul, ol, li, pre, form, fieldset, input, p, blockquote, th, td {
 font-weight:400;
