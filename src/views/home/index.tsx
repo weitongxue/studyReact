@@ -5,14 +5,20 @@ import Action from '@store/action'
 import Banner from '@components/carousel'
 import Nav from '@components/nav'
 import Notice from '@components/notice'
+import NavTab from '@components/navTab'
+import List from '@components/listView'
 
-import { bannerProps, navProps } from '@assets/js/resetProps'
+import { bannerProps, navProps, tabProps } from '@assets/js/resetProps'
 
 import './index.less'
 
 class Home extends Component {
   componentWillMount () {
     Store.dispatch(Action.getNav(navProps))
+  }
+
+  onEndReached = () => {
+    console.log('aaa')
   }
 
   render () {
@@ -30,8 +36,10 @@ class Home extends Component {
         <Nav />
         <main>
           <div className='notice-wrap'>
-            <Notice notice='好消息：中艺优美2019春夏新品上市，更多新品等你来抢' />
+            <Notice loop notice='好消息：中艺优美2019春夏新品上市，更多新品等你来抢' />
           </div>
+          <NavTab {...tabProps} renderContent={<List />}/>
+          {/* <List onEndReached = {this.onEndReached} /> */}
         </main>
       </>
     )
