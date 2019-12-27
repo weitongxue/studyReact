@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Store from '@store'
+import Action from '@store/action'
 
 import Banner from '@components/carousel'
 import Nav from '@components/nav'
+import Notice from '@components/notice'
+
 import { bannerProps, navProps } from '@assets/js/resetProps'
-import Action from '@store/action'
 
 import './index.less'
 
@@ -24,8 +26,13 @@ class Home extends Component {
           <div className='banner-wrap'>
             <Banner {...bannerProps} />
           </div>
-          <Nav />
         </div>
+        <Nav />
+        <main>
+          <div className='notice-wrap'>
+            <Notice notice='好消息：中艺优美2019春夏新品上市，更多新品等你来抢' />
+          </div>
+        </main>
       </>
     )
   }
