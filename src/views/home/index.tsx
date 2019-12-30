@@ -8,7 +8,7 @@ import Notice from '@components/notice'
 import NavTab from '@components/navTab'
 import List from '@components/listView'
 
-import { bannerProps, navProps, tabProps } from '@assets/js/resetProps'
+import { bannerProps, navProps, tabProps } from '@assets/js/resetProps.js'
 
 import './index.less'
 
@@ -21,6 +21,12 @@ class Home extends Component {
     console.log('aaa')
   }
 
+  list = () => {
+    return (
+      <div>我是内容</div>
+    )
+  }
+  
   render () {
     return (
       <>
@@ -38,8 +44,7 @@ class Home extends Component {
           <div className='notice-wrap'>
             <Notice loop notice='好消息：中艺优美2019春夏新品上市，更多新品等你来抢' />
           </div>
-          <NavTab {...tabProps} renderContent={<List />}/>
-          {/* <List onEndReached = {this.onEndReached} /> */}
+          <NavTab {...tabProps} renderContent={<List MyBody={this.list} onEndReached={this.onEndReached} />} />
         </main>
       </>
     )

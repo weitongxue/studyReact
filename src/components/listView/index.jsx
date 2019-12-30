@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
 import { ListView } from 'antd-mobile'
 
-function MyBody () {
-  return (
-    <div>我是内容</div>
-  )
-}
-
 /**
  * @name: 分页列表
  * @param ： renderBodyComponent：需要渲染的子组件, scrollRenderAheadDistance: 当一个行接近屏幕范围多少像素之内的时候，就开始渲染这一行
- * onEndReached：请求数据的callback; onEndReachedThreshold: 当距离底部多少像素的时候看是调用onEndReached
+ * onEndReached：请求数据的callback; onEndReachedThreshold: 当距离底部多少像素的时候看是调用onEndReached; MyBody是当前渲染的内容
  * @return: any
  */
 class List extends Component {
@@ -28,7 +22,6 @@ class List extends Component {
   }
 
   render () {
-    console.log(this.props)
     const separator = (sectionID, rowID) => (
       <div
         key={`${sectionID}-${rowID}`}
@@ -40,7 +33,7 @@ class List extends Component {
         }}
       />
     )
-
+    const { MyBody } = this.props
     return (
       <ListView
         dataSource={this.state.dataSource}

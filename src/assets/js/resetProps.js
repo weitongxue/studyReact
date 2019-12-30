@@ -2,7 +2,7 @@
  * @Descripttion: 统一props
  * @Author: weitongxue
  * @Date: 2019-12-25 14:56:15
- * @LastEditTime : 2019-12-27 17:17:16
+ * @LastEditTime : 2019-12-30 11:31:50
  */
 export const bannerProps = {
   bannerList: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
@@ -22,6 +22,9 @@ export const tabProps = {
     { title: '生活用品' },
     { title: '收藏品' }
   ],
+  pageSize: 4,
+  initialPage: 0,
+  swipeable: true,
   tabBarActiveTextColor: '#C00808',
   tabBarInactiveTextColor: '#999999',
   underStyle: {

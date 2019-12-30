@@ -2,7 +2,7 @@ import React from 'react'
 import { Carousel } from 'antd-mobile'
 
 interface Props {
-  bannerList: [], // 图片列表
+  bannerList:any [], // 图片列表
   imgHeight: number, // 图片高度 默认100
   autoplay: boolean, // 是否自动播放 默认不自动播放
   dots: boolean // 是否显示指示器 默认显示
@@ -13,7 +13,7 @@ class Banner extends React.Component <Props, {}>{
     super(props)
   }
   render() {
-    const { bannerList, imgHeight = 100, autoplay = false, dots = true } = this.props
+    const { bannerList = [], imgHeight = 100, autoplay = false, dots = true } = this.props
     return (
       <Carousel
         autoplay={autoplay}
